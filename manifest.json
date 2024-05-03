@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "TwitchVIPCounter",
+  "version": "1.0",
+
+  "description": "Adds a counter to the VIPs and Mods commands on Twitch.",
+
+  "icons": {
+    "48": "icons/icon-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.twitch.tv/*"],
+      "js": ["script.js"]
+    }
+  ]
+}
