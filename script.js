@@ -12,14 +12,17 @@ const addCounter = () => {
             // Make sure "welcome to chat" and messages already with count aren't given a(nother) count
             if (!element.innerHTML.includes('Welcome to the chat room!') && !element.innerHTML.includes(' (count: ')) {
                 // Get list of VIPs/Mods
-                const vips = element.innerHTML.split(': ');
-                // Get count of VIPs/Mods
-                const count = vips[1].split(' ').length;
+                try {
+                    const vips = element.innerHTML.split(': ');
+                    // Get count of VIPs/Mods
+                    const count = vips[1].split(' ').length;
 
-                // Replace text in the DOM with new text
-                element.innerHTML = element.innerHTML + ` (count: ${count})`;
+                    // Replace text in the DOM with new text
+                    element.innerHTML = element.innerHTML + ` (count: ${count})`;
+                } catch (e) {}
             }
         });
+        // Sets 1s timeout to make sure that any messages that have been sent get the counter added to them.
     }, 1000);
 };
 
